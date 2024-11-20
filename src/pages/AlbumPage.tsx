@@ -1,3 +1,4 @@
+import AlbumPageSkeleton from "@/components/skeletons/AlbumPageSkeleton";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { formatDuration, formateDate, formateDateToYear } from "@/lib/utils";
@@ -16,7 +17,7 @@ const AlbumPage = () => {
     if (id) fetchAlbumById(id);
   }, [fetchAlbumById, id]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <AlbumPageSkeleton />;
 
   const handlePlayAlbum = () => {
     if (!currentAlbum) return;

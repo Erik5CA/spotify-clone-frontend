@@ -9,6 +9,7 @@ const FeaturedGridSkeleton = () => {
           <div className="w-16 sm:w-20 h-16 sm:h-20 bg-zinc-700 flex-shrink-0" />
           <div className="flex-1 p-4">
             <div className="h-4 bg-zinc-700 rounded w-3/4 mb-2" />
+            <div className="h-3 bg-zinc-700 rounded w-1/2 mb-2" />
           </div>
         </div>
       ))}

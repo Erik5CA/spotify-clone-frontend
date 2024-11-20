@@ -1,3 +1,4 @@
+import FriendsActivitySkeleton from "@/components/skeletons/FriendsActivitySkeleton";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useChatStore } from "@/stores/useChatStore";
@@ -8,13 +9,13 @@ import { useEffect } from "react";
 
 const FriendsAvtivity = () => {
   const { user } = useUser();
-  const { users, isLoading, fetchUsers } = useChatStore();
+  const { users, fetchUsers, isLoading } = useChatStore();
   const isPlaying = false;
   useEffect(() => {
     if (user) fetchUsers();
   }, [fetchUsers, user]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <FriendsActivitySkeleton />;
 
   return (
     <div className="h-full bg-zinc-900 rounded-md flex flex-col">

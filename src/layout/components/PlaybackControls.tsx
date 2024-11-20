@@ -48,7 +48,7 @@ const PlaybackControls = () => {
   };
   return (
     <footer className="h-20 sm:h-24 bg-zinc-900 border-t border-zinc-800 px-4 mx-2 rounded-t-md">
-      <div className="flex justify-between items-center h-full max-w-[1800px] mx-auto">
+      <div className="flex justify-center sm:justify-between items-center h-full max-w-[1800px] mx-auto">
         <div className="hidden sm:flex items-center gap-4 min-w-[180px] w-[30%]">
           {currentSong && (
             <>
@@ -69,12 +69,12 @@ const PlaybackControls = () => {
           )}
         </div>
 
-        <div className="flex flex-col items-center gap-2 flex-1 max-w-full sm:max-w-[45%]">
+        <div className="flex flex-col items-center justify-center gap-2 flex-1 max-w-[80%] sm:max-w-[45%]">
           <div className="flex items-center gap-4 sm:gap-6">
             <Button
               size="icon"
               variant="ghost"
-              className="hidden sm:inline-flex hover:text-white text-zinc-400"
+              className="hover:text-white text-zinc-400"
             >
               <Shuffle className="size-4" />
             </Button>
@@ -115,13 +115,13 @@ const PlaybackControls = () => {
             <Button
               size="icon"
               variant="ghost"
-              className="hidden sm:inline-flex hover:text-white text-zinc-400"
+              className="hover:text-white text-zinc-400"
             >
               <Repeat className="size-4" />
             </Button>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 w-full">
+          <div className="flex items-center gap-2 w-full">
             <div className="text-xs text-zinc-400">
               {formatDuration(currentTime)}
             </div>
@@ -138,7 +138,7 @@ const PlaybackControls = () => {
           </div>
         </div>
 
-        <div className="hidden sm:flex items-center gap-4 min-w-[180px] w-[30%] justify-end">
+        <div className="hidden sm:flex items-center gap-1 min-w-[180px] w-[30%] justify-end">
           <Button
             size="icon"
             variant="ghost"
