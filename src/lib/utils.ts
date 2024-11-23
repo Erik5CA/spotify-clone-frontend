@@ -27,6 +27,13 @@ export const formatDuration = (duration: number) => {
   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 };
 
+export const formatTimeMessage = (date: string) => {
+  return new Date(date).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+};
 export const getRandomColorHex = () => {
   const letters = "0123456789ABCDEF";
   let color = "#";

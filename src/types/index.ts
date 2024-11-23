@@ -33,7 +33,7 @@ export interface Message {
   senderId: string;
   receiverId: string;
   content: string;
-  createtAt: string;
+  createdAt: string;
   updatedAt: string;
 }
 
