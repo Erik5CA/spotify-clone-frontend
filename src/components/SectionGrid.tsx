@@ -35,6 +35,8 @@ const SectionGrid = ({ title, songs, isLoading }: Props) => {
                   src={song.imageUrl}
                   alt={song.title}
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  width={"640"}
+                  height={"640"}
                 />
               </div>
               <PlayButton song={song} />

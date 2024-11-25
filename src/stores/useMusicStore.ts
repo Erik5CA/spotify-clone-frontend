@@ -7,6 +7,10 @@ interface MusicStore {
   albums: Album[];
   songs: Song[];
   isLoading: boolean;
+  isLoadingAlbum: boolean;
+  isLoadingAlbumById: boolean;
+  isLoadingSongs: boolean;
+  isLoadingStats: boolean;
   error: string | null;
   currentAlbum: Album | null;
   madeForYouSongs: Song[];
@@ -28,6 +32,10 @@ export const useMusicStore = create<MusicStore>()((set) => ({
   albums: [],
   songs: [],
   isLoading: true,
+  isLoadingAlbum: true,
+  isLoadingAlbumById: true,
+  isLoadingSongs: true,
+  isLoadingStats: true,
   error: null,
   currentAlbum: null,
   madeForYouSongs: [],
@@ -41,26 +49,26 @@ export const useMusicStore = create<MusicStore>()((set) => ({
   },
 
   fetchAlbums: async () => {
-    set({ isLoading: true, error: null });
+    set({ isLoadingAlbum: true, error: null });
     try {
       const response = await axiosInstance.get("/albums");
       set({ albums: response.data });
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
-      set({ isLoading: false });
+      set({ isLoadingAlbum: false });
     }
   },
 
   fetchAlbumById: async (id: string) => {
-    set({ isLoading: true, error: null });
+    set({ isLoadingAlbumById: true, error: null });
     try {
       const response = await axiosInstance.get(`/albums/${id}`);
       set({ currentAlbum: response.data });
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
-      set({ isLoading: false });
+      set({ isLoadingAlbumById: false });
     }
   },
 
@@ -101,26 +109,26 @@ export const useMusicStore = create<MusicStore>()((set) => ({
   },
 
   fetchSongs: async () => {
-    set({ isLoading: true, error: null });
+    set({ isLoadingSongs: true, error: null });
     try {
       const response = await axiosInstance.get("/songs");
       set({ songs: response.data });
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
-      set({ isLoading: false });
+      set({ isLoadingSongs: false });
     }
   },
 
   fetchStats: async () => {
-    set({ isLoading: true, error: null });
+    set({ isLoadingStats: true, error: null });
     try {
       const response = await axiosInstance.get("/stats");
       set({ stats: response.data });
     } catch (error: any) {
       set({ error: error.response.data.message });
     } finally {
-      set({ isLoading: false });
+      set({ isLoadingStats: false });
     }
   },
 

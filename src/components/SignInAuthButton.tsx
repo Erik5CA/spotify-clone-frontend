@@ -20,7 +20,13 @@ const SignInAuthButton = () => {
       className="w-full text-white border-zinc-200 h-11"
       onClick={signInWithGoogle}
     >
-      <img src="/google.svg" alt="Google Logo" className="w-5 h-5" />
+      <img
+        src="/google.svg"
+        alt="Google Logo"
+        className="w-5 h-5"
+        width={"20"}
+        height={"20"}
+      />
       Continue with Google
     </Button>
   );

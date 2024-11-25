@@ -12,9 +12,9 @@ import { useMusicStore } from "@/stores/useMusicStore";
 import { Calendar, Trash2 } from "lucide-react";
 
 const SongsTable = () => {
-  const { songs, isLoading, error, deleteSong } = useMusicStore();
+  const { songs, isLoadingSongs, error, deleteSong } = useMusicStore();
 
-  if (isLoading) {
+  if (isLoadingSongs) {
     return (
       <div className="flex items-center justify-between py-8">
         <div className="text-zinc-400">Loading Songs...</div>
@@ -48,6 +48,8 @@ const SongsTable = () => {
                 src={song.imageUrl}
                 alt={song.title}
                 className="size-10 rounded object-cover"
+                width={"640"}
+                height={"640"}
               />
             </TableCell>
             <TableCell className="font-medium">{song.title}</TableCell>

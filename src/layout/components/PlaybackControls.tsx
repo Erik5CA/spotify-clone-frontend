@@ -56,6 +56,8 @@ const PlaybackControls = () => {
                 src={currentSong.imageUrl}
                 alt={currentSong.title}
                 className="w-14 h-14 object-cover rounded-md"
+                width={"640"}
+                height={"640"}
               />
               <div className="flex-1 min-w-0">
                 <div className="font-medium truncate hover:underline cursor-pointer">
@@ -139,30 +141,31 @@ const PlaybackControls = () => {
         </div>
 
         <div className="hidden sm:flex items-center gap-1 min-w-[180px] w-[30%] justify-end">
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400"
-          >
-            <Mic2 className="size-4" />
-          </Button>
+          <div className="hidden md:flex items-center gap-1">
+            <Button
+              size="icon"
+              variant="ghost"
+              className="hover:text-white text-zinc-400 m-0"
+            >
+              <Mic2 className="size-4" />
+            </Button>
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400"
-          >
-            <ListMusic className="size-4" />
-          </Button>
+            <Button
+              size="icon"
+              variant="ghost"
+              className="hover:text-white text-zinc-400 m-0"
+            >
+              <ListMusic className="size-4" />
+            </Button>
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="hover:text-white text-zinc-400"
-          >
-            <Laptop2 className="size-4" />
-          </Button>
-
+            <Button
+              size="icon"
+              variant="ghost"
+              className="hover:text-white text-zinc-400 m-0"
+            >
+              <Laptop2 className="size-4" />
+            </Button>
+          </div>
           <div className="flex items-center gap-2">
             <Button
               size="icon"
@@ -176,7 +179,7 @@ const PlaybackControls = () => {
               value={[volume]}
               max={100}
               step={1}
-              className="w-24 hover:cursor-grab active:cursor-grabbing"
+              className="w-12 md:w-24 hover:cursor-grab active:cursor-grabbing"
               onValueChange={(value) => {
                 setVolume(value[0]);
                 if (audioRef.current) {

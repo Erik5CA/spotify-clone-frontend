@@ -10,14 +10,14 @@ import { useParams } from "react-router-dom";
 
 const AlbumPage = () => {
   const { id } = useParams();
-  const { fetchAlbumById, currentAlbum, isLoading } = useMusicStore();
+  const { fetchAlbumById, currentAlbum, isLoadingAlbumById } = useMusicStore();
   const { currentSong, isPlaying, playAlbum, togglePlay } = usePlayerStore();
 
   useEffect(() => {
     if (id) fetchAlbumById(id);
   }, [fetchAlbumById, id]);
 
-  if (isLoading) return <AlbumPageSkeleton />;
+  if (isLoadingAlbumById) return <AlbumPageSkeleton />;
 
   const handlePlayAlbum = () => {
     if (!currentAlbum) return;
@@ -52,6 +52,8 @@ const AlbumPage = () => {
                 src={currentAlbum?.imageUrl}
                 alt={currentAlbum?.title}
                 className="w-60 h-60 rounded-md object-cover"
+                width={"640"}
+                height={"640"}
               />
               <div className="flex flex-col justify-end">
                 <p className="text-sm font-medium">Album</p>
@@ -125,6 +127,8 @@ const AlbumPage = () => {
                             src={song.imageUrl}
                             alt={song.title}
                             className="size-10"
+                            width={"640"}
+                            height={"640"}
                           />
 
                           <div>

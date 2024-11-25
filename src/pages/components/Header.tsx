@@ -10,6 +10,8 @@ const Header = () => {
             src="/spotify.svg"
             alt="spotify logo"
             className="size-10 text-black"
+            width={"40"}
+            height={"40"}
           />
         </Link>
         <div>

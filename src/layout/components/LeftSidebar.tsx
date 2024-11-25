@@ -9,13 +9,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
-  const { albums, isLoading, fetchAlbums } = useMusicStore();
+  const { albums, isLoadingAlbum, fetchAlbums } = useMusicStore();
 
   useEffect(() => {
     fetchAlbums();
   }, [fetchAlbums]);
-
-  console.log({ albums });
 
   return (
     <div className="h-full flex flex-col gap-2">
@@ -27,11 +25,12 @@ const LeftSidebar = () => {
             className={cn(
               buttonVariants({
                 variant: "ghost",
-                className: "w-full justify-start text-white hover:bg-zinc-800",
+                className:
+                  "w-full flex md:justify-start text-white hover:bg-zinc-800 justify-center",
               })
             )}
           >
-            <HomeIcon className="size-5 mr-2" />
+            <HomeIcon className="size-5 mr-2 md:m-0" />
             <span className="hidden md:inline">Home</span>
           </Link>
 
@@ -42,7 +41,7 @@ const LeftSidebar = () => {
                 buttonVariants({
                   variant: "ghost",
                   className:
-                    "w-full justify-start text-white hover:bg-zinc-800",
+                    "w-full flex md:justify-start text-white hover:bg-zinc-800 justify-center",
                 })
               )}
             >
@@ -64,19 +63,21 @@ const LeftSidebar = () => {
 
         <ScrollArea className="h-[calc(100vh-300px)]">
           <div className="space-y-2">
-            {isLoading ? (
+            {isLoadingAlbum ? (
               <PlaylistSkeleton />
             ) : (
               albums.map((album) => (
                 <Link
                   to={`albums/${album._id}`}
                   key={album._id}
-                  className="p-2 flex items-center gap-3 rounded-md group cursor-pointer hover:bg-zinc-800"
+                  className="p-2 flex items-center justify-center md:justify-start gap-0 md:gap-3 rounded-md group cursor-pointer hover:bg-zinc-800"
                 >
                   <img
                     src={album.imageUrl}
                     alt={album.title}
                     className="size-12 rounded-md flex-shrink-0 object-cover"
+                    width={"640"}
+                    height={"640"}
                   />
                   <div className="flex-1 min-w-0 hidden md:block">
                     <p className="font-medium truncate">{album.title}</p>

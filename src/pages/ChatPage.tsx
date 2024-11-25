@@ -86,6 +86,8 @@ const NoConversationPlaceholder = () => {
         src="spotify.svg"
         alt="Spotify Logo"
         className="size-16 animate-bounce"
+        width={"64"}
+        height={"64"}
       />
       <div className="text-center">
         <h3 className="text-zinc-300 text-lg font-medium mb-1">

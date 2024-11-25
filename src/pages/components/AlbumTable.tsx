@@ -12,9 +12,9 @@ import { formateDate } from "@/lib/utils";
 import { Calendar, Trash2 } from "lucide-react";
 
 const AlbumTable = () => {
-  const { albums, isLoading, error, deleteAlbum } = useMusicStore();
+  const { albums, isLoadingAlbum, error, deleteAlbum } = useMusicStore();
 
-  if (isLoading) {
+  if (isLoadingAlbum) {
     return (
       <div className="flex items-center justify-between py-8">
         <div className="text-zinc-400">Loading Songs...</div>
@@ -47,6 +47,8 @@ const AlbumTable = () => {
                 src={album.imageUrl}
                 alt={album.title}
                 className="size-10 rounded object-cover"
+                width={"640"}
+                height={"640"}
               />
             </TableCell>
             <TableCell className="font-medium">{album.title}</TableCell>
